@@ -1,0 +1,42 @@
+<%- include( 'includes/head.ejs') %>
+
+</head>
+
+<body>
+
+    <%- include( 'includes/nav.ejs') %>
+    
+    <section class="container">
+        <form action="/edit_post_save/<%= edit_post._id %>" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Post Title</label>
+                    
+                    <input type="text" class="form-control" id="inputEmail4" value="<%= edit_post.post_title %>" name="post_title"   required>
+                    
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Post Image</label>
+                    
+                    <input type="text" class="form-control" id="inputPassword4"  value="<%= edit_post.post_image %>"  name="post_image" required>
+                    
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputAddress">About</label>
+              
+                <!-- <input style="height: 200px;" name="post_about"  id="inputAddress" class="form-control"  value="<%= edit_post.post_about %>" required  type="text">  -->
+
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"><%= edit_post.post_about %></textarea>
+
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Edit Post </button>
+            </form>
+            
+        </section>
+        
+
+        
+        <%- include( 'includes/end.ejs') %>

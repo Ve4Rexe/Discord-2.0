@@ -1,0 +1,57 @@
+<%- include( 'includes/head.ejs') %>
+
+<style>
+    .post_section {
+        background-color: rgb(175, 159, 161);
+        /* border: 5px solid blue; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+
+    <%- include( 'includes/nav.ejs') %>
+
+    <section class="post_section  container ">
+
+        <% if( ejs_post_array.length > 0 ) {   %>
+
+            <%  for (let single_post of ejs_post_array )  {  %>
+
+            <div class="card mb-3" style="width: 65%;">
+                <img src=" <%= single_post.post_image  %> " class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= single_post.post_title %></h5>
+                    <p class="card-text"><%= single_post.post_about %> </p>
+                    <a href="/edit/<%= single_post._id %> " class="btn btn-success">Edit</a>
+                    <a href="/delete/<%= single_post._id %> " class="btn btn-success">Delete</a>
+                    
+                </div>
+            </div>
+
+            <% } %>
+
+        <% }  else  { %>
+            
+            <h1>No Post Added </h1>
+
+        <% } %> 
+
+
+
+
+
+    </section>
+
+
+    <%- include( 'includes/end.ejs') %>
